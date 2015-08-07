@@ -52,7 +52,7 @@ Vagrant.configure("2") do |config|
 
   # Change permission on some files
   config.vm.synced_folder '.', '/vagrant'
-  config.vm.synced_folder './playbook', '/vagrant/playbook', extra: 'dmode=666,fmode=666'
+  config.vm.synced_folder './playbook', '/vagrant/playbook', mount_options: ['dmode=666', 'fmode=666']
 
   # Run Ansible
   config.vm.provision :shell, :inline => '/vagrant/run_ansible.sh /vagrant/'
